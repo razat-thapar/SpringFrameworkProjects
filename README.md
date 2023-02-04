@@ -1,7 +1,7 @@
 # SpringFrameworkProjects
 Contains different projects (demo + real time use) based on Spring Framework. 
 
-#How To Contribute
+# How To Contribute
 1. Fork the repository.
 2. clone your remote repo to your local. 
 3. commit changes to your local. 
