@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="address" class="com.razataggarwal.one_dependencyinjection.model.Address"> 
+	<!-- collaborators and configuration for this bean go here -->
+		<property name="addressId">
+			<value>2</value>
+		</property>
+		<property name="street">
+			<value>#5</value>
+		</property>
+		<property name="city">
+			<value>agra</value>
+		</property>
+		<property name="country">
+			<value>India</value>
+		</property>
+		<property name="pincode">
+			<value>23498</value>
+		</property>	
+	</bean>
+	<bean id="student" class="com.razataggarwal.one_dependencyinjection.model.Student">
+	<!-- collaborators and configuration for this bean go here -->
+		<property name="studentId">
+			<value>2</value>
+		</property>
+		<property name="studentName">
+			<value>Raj</value>
+		</property>
+		<property name="perm_address" ref="address">
+		</property>	
+	</bean>
+	<!-- more bean definitions go here -->
+</beans>
