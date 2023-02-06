@@ -1,8 +1,8 @@
 package com.razataggarwal.one_dependencyinjection;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.razataggarwal.one_dependencyinjection.model.Addition;
 import com.razataggarwal.one_dependencyinjection.model.Address;
 import com.razataggarwal.one_dependencyinjection.model.Employee;
 import com.razataggarwal.one_dependencyinjection.model.Student;
@@ -34,7 +34,7 @@ public class App
         //#############Spring based dependency injection using IOC container. 
         System.out.println("Spring DI by IOC container.");
         
-        ApplicationContext context = new ClassPathXmlApplicationContext("context.xml","context_collections.xml","context_constructorBasedInjection.xml"); 
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("context.xml","context_collections.xml","context_constructorBasedInjection.xml","context_ResolvingConstructorBasedInjectionAmbiguity.xml"); 
         
         //####USING setter based injection. 
         System.out.println("setter based injection");
@@ -62,6 +62,21 @@ public class App
         //collection type injection bean. 
         Employee emp2 = (Employee)context.getBean("employee2");
         System.out.println(emp2);
+        
+        
+        //Resolving ambiguity due to overloaded constructors in constructor based injection. 
+        System.out.println("Resolving ambiguity in Constructor based injection examples");
+        Addition addition1 = (Addition)context.getBean("addition1");
+        System.out.println(addition1);
+        addition1.doSum();
+        Addition addition2 = (Addition)context.getBean("addition2");
+        System.out.println(addition2);
+        addition2.doSum();
+        Addition addition3 = (Addition)context.getBean("addition3");
+        System.out.println(addition3);
+        addition3.doSum();
+        
+        context.close();
         
     }
 }
