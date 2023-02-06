@@ -19,11 +19,11 @@ public class Pizza {
 	}
 	
 	public void init() {
-		System.out.println("Calling init() method post dependency injection");
+		System.out.println(this.getClass().getName()+" : "+"Calling init() method post dependency injection");
 	}
 	
 	public void destroy() {
-		System.out.println("Calling destroy() method before destroying bean");
+		System.out.println(this.getClass().getName()+" : "+"Calling destroy() method before destroying bean");
 	}
 	
 	@Override
