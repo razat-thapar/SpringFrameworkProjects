@@ -36,7 +36,9 @@ public class App
         
         //context.xml uses setter based injection. 
         
-        Student student2= context.getBean(Student.class);
+        Student student2= (Student)context.getBean("student1");
+        Student student3= (Student)context.getBean("student2");
         System.out.println(student2);
+        System.out.println(student3);
     }
 }

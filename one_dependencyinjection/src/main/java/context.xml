@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:p="http://www.springframework.org/schema/p"
 xsi:schemaLocation="http://www.springframework.org/schema/beans
 https://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean id="address" class="com.razataggarwal.one_dependencyinjection.model.Address"> 
@@ -21,16 +22,17 @@ https://www.springframework.org/schema/beans/spring-beans.xsd">
 			<value>23498</value>
 		</property>	
 	</bean>
-	<bean id="student" class="com.razataggarwal.one_dependencyinjection.model.Student">
+	<bean id="student1" class="com.razataggarwal.one_dependencyinjection.model.Student">
 	<!-- collaborators and configuration for this bean go here -->
-		<property name="studentId">
-			<value>2</value>
-		</property>
-		<property name="studentName">
-			<value>Raj</value>
-		</property>
-		<property name="perm_address" ref="address">
-		</property>	
+		<property name="studentId" value="2"/>  <!-- Using value as an attribute  -->
+		<property name="studentName" value="Razat Aggarwal" />
+		<property name="perm_address" ref="address" />
 	</bean>
 	<!-- more bean definitions go here -->
+	<!-- Using p schema value as an attribute  -->
+		<bean id="student2" class="com.razataggarwal.one_dependencyinjection.model.Student" 
+		p:studentId="3" p:studentName="ABC">
+			<property name="perm_address" ref="address" />
+		</bean>
+		
 </beans>
