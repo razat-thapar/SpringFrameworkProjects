@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.razataggarwal.one_dependencyinjection.model.Address;
+import com.razataggarwal.one_dependencyinjection.model.Employee;
 import com.razataggarwal.one_dependencyinjection.model.Student;
 
 /**
@@ -32,13 +33,20 @@ public class App
         //Spring based dependency injection using IOC container. 
         System.out.println("Spring DI by IOC container.");
         
-        ApplicationContext context = new ClassPathXmlApplicationContext("context.xml"); 
+        ApplicationContext context = new ClassPathXmlApplicationContext("context.xml","context_collections.xml"); 
         
         //context.xml uses setter based injection. 
         
+        //primitive type injection beans. 
         Student student2= (Student)context.getBean("student1");
         Student student3= (Student)context.getBean("student2");
+        
         System.out.println(student2);
         System.out.println(student3);
+        
+        //collection type injection bean. 
+        Employee emp1 = (Employee)context.getBean("employee1");
+        System.out.println(emp1);
+        
     }
 }
