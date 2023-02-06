@@ -19,13 +19,14 @@ public class Employee {
 	}
 	
 	public Employee(Long employeeId, String employeeName, Set<Long> phoneNumbers, List<Address> addresses,
-			Map<String, String> courses) {
+			Map<String, String> courses , Properties emails) {
 		super();
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
 		this.phoneNumbers = phoneNumbers;
 		this.addresses = addresses;
 		this.courses = courses;
+		this.emails= emails; 
 	}
 
 	public Long getEmployeeId() {

@@ -31,8 +31,7 @@ https://www.springframework.org/schema/beans/spring-beans.xsd">
 	<!-- more bean definitions go here -->
 	<!-- Using p schema value as an attribute  -->
 		<bean id="student2" class="com.razataggarwal.one_dependencyinjection.model.Student" 
-		p:studentId="3" p:studentName="ABC">
-			<property name="perm_address" ref="address" />
+		p:studentId="3" p:studentName="ABC" p:perm_address-ref="address">
 		</bean>
 		
 </beans>

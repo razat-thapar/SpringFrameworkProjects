@@ -30,12 +30,14 @@ public class App
         
         System.out.println(student1);
         
-        //Spring based dependency injection using IOC container. 
+        //###########################################################
+        //#############Spring based dependency injection using IOC container. 
         System.out.println("Spring DI by IOC container.");
         
-        ApplicationContext context = new ClassPathXmlApplicationContext("context.xml","context_collections.xml"); 
+        ApplicationContext context = new ClassPathXmlApplicationContext("context.xml","context_collections.xml","context_constructorBasedInjection.xml"); 
         
-        //context.xml uses setter based injection. 
+        //####USING setter based injection. 
+        System.out.println("setter based injection");
         
         //primitive type injection beans. 
         Student student2= (Student)context.getBean("student1");
@@ -47,6 +49,19 @@ public class App
         //collection type injection bean. 
         Employee emp1 = (Employee)context.getBean("employee1");
         System.out.println(emp1);
+        
+        //####USING constructor based injection.
+        System.out.println("constructor based injection");
+        //primitive type injection beans. 
+        Address address4= (Address)context.getBean("address4");
+        Address address5= (Address)context.getBean("address5");
+        
+        System.out.println(address4);
+        System.out.println(address5);
+        
+        //collection type injection bean. 
+        Employee emp2 = (Employee)context.getBean("employee2");
+        System.out.println(emp2);
         
     }
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:c="http://www.springframework.org/schema/c"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Using constructor-arg tag for constructor based injection of primitive data types. -->
+	<bean id="address4" class="com.razataggarwal.one_dependencyinjection.model.Address"> 
+	<!-- collaborators and configuration for this bean go here -->
+		<constructor-arg value="4" type="int" />
+		<constructor-arg type="String">
+			<value>#99</value>
+		</constructor-arg>
+		<constructor-arg value="Patiala" />
+		<constructor-arg value="India" />
+		<constructor-arg value="147001" />
+	</bean>
+	
+	<!-- Using c schema for constructor based injection of primitive data types. -->
+	<bean id="address5" class="com.razataggarwal.one_dependencyinjection.model.Address"
+	      c:addressId="5" c:street="#100" c:city="AGra" c:country="India" c:pincode="23423" > 
+	</bean>
+	
+	<!-- Using constructor based injection of collection and reference data types. -->
+	<bean id="employee2" class="com.razataggarwal.one_dependencyinjection.model.Employee">
+		<constructor-arg value="2" type="Long"/>
+		<constructor-arg value="SLDJF" type="String"/>
+		<constructor-arg name="phoneNumbers">
+			<set>
+				<value>2837492234</value>
+				<value>2834738234</value>
+			</set>		
+		</constructor-arg>
+		<constructor-arg name="addresses">
+			<list>
+				<ref bean="address1" />
+				<ref bean="address2" />
+			</list>
+		</constructor-arg>
+		<constructor-arg name="courses">
+			<map>
+				<entry key="Core Java L1" value="3 years"/>
+				<entry key="Core Java L2" value="1 years"/>
+				<entry key="Core Java L3" value="1 years"/>
+				<entry key="Core Java L4" value="1 years"/>
+			</map>
+		</constructor-arg>
+		<constructor-arg name="emails">
+			<props>
+				<prop key="admin">admin@gmail.com</prop>
+				<prop key="manager">manager@gmail.com</prop>
+				<prop key="techLead">lead@gmail.com</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+		
+</beans>
