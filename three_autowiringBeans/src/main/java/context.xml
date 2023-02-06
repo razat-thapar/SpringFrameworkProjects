@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+https://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- To enable all the annotations provided in dependency -->
+    <context:annotation-config/>
+	
+	<bean id="address" class="com.razataggarwal.three_autowiringBeans.model.Address">
+		<property name="id" value="1"/>
+		<property name="street" value="#2" />
+		<property name="city" value="jalandar" />
+		<property name="country" value="India" />
+		<property name="pincode" value="182733" />
+	</bean>
+	
+	<bean id="address1" class="com.razataggarwal.three_autowiringBeans.model.Address">
+		<property name="id" value="2"/>
+		<property name="street" value="#23" />
+		<property name="city" value="asadsdf" />
+		<property name="country" value="India" />
+		<property name="pincode" value="182733" />
+	</bean>
+	
+	<bean id="address2" class="com.razataggarwal.three_autowiringBeans.model.Address" primary="true">
+		<property name="id" value="3"/>
+		<property name="street" value="#3" />
+		<property name="city" value="asdf" />
+		<property name="country" value="India" />
+		<property name="pincode" value="182733" />
+	</bean>
+	
+	<!-- Autowire mode : default -->
+	<bean id="employee1" class="com.razataggarwal.three_autowiringBeans.model.Employee" autowire="default">
+		<property name="id" value="1"/>
+		<property name="name" value="one"/>
+	</bean>
+	
+	<!-- Autowire mode : byName -->
+	<bean id="employee2" class="com.razataggarwal.three_autowiringBeans.model.Employee" autowire="byName">
+		<property name="id" value="2"/>
+		<property name="name" value="two"/>
+	</bean>
+	
+	<!-- Autowire mode : byType -->
+	<bean id="employee3" class="com.razataggarwal.three_autowiringBeans.model.Employee" autowire="byType">
+		<property name="id" value="3"/>
+		<property name="name" value="three"/>
+	</bean>
+	
+	<!-- Autowire mode : constructor -->
+	<bean id="employee4" class="com.razataggarwal.three_autowiringBeans.model.Employee" autowire="constructor">
+		<property name="id" value="4"/>
+		<property name="name" value="four"/>
+	</bean>	
+	
+</beans>
