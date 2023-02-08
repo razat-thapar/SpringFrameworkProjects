@@ -1,6 +1,7 @@
 package com.razataggarwal.three_autowiringBeans.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class Student {
 	
@@ -8,7 +9,8 @@ public class Student {
 	private String name;
 	
 	//autowiring using property
-	//@Autowired
+	@Autowired
+	@Qualifier(value="address1")
 	private Address address;
 	
 	
