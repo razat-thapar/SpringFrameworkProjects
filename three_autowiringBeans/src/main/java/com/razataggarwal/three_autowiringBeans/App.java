@@ -3,6 +3,7 @@ package com.razataggarwal.three_autowiringBeans;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.razataggarwal.three_autowiringBeans.model.Employee;
+import com.razataggarwal.three_autowiringBeans.model.Student;
 
 /**
  * Hello world!
@@ -30,7 +31,8 @@ public class App
         
         //autowiring using annotations. 
         System.out.println("\nautowiring using @Autowired.");
-        
+        Student stu1= context.getBean("student1",Student.class);
+        System.out.println("Autowired using Annotation: "+stu1);
         context.close(); 
     }
 }

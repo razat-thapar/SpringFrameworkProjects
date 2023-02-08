@@ -5,8 +5,12 @@ public class Employee {
 	private String id; 
 	private Address address;
 	
-	public Employee(Address address) {
-		this.address=address; 
+	public Employee() {
+		
+	}
+	
+	public Employee(Address address2) {
+		this.address=address2; 
 	}
 	
 	public String getName() {

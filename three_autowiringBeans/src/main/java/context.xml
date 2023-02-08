@@ -5,11 +5,10 @@ xmlns:context="http://www.springframework.org/schema/context"
 xsi:schemaLocation="http://www.springframework.org/schema/beans
 https://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
-https://www.springframework.org/schema/context/spring-context.xsd">
-    
-    <!-- To enable all the annotations provided in dependency -->
+https://www.springframework.org/schema/context/spring-context.xsd"> 
+	 <!-- To enable all the annotations provided in dependency -->
     <context:annotation-config/>
-	
+    
 	<bean id="address" class="com.razataggarwal.three_autowiringBeans.model.Address">
 		<property name="id" value="1"/>
 		<property name="street" value="#2" />
@@ -26,7 +25,7 @@ https://www.springframework.org/schema/context/spring-context.xsd">
 		<property name="pincode" value="182733" />
 	</bean>
 	
-	<bean id="address2" class="com.razataggarwal.three_autowiringBeans.model.Address" primary="true">
+	<bean id="address2" class="com.razataggarwal.three_autowiringBeans.model.Address" >
 		<property name="id" value="3"/>
 		<property name="street" value="#3" />
 		<property name="city" value="asdf" />
@@ -47,7 +46,7 @@ https://www.springframework.org/schema/context/spring-context.xsd">
 	</bean>
 	
 	<!-- Autowire mode : byType -->
-	<bean id="employee3" class="com.razataggarwal.three_autowiringBeans.model.Employee" autowire="byType">
+	<bean id="employee3" class="com.razataggarwal.three_autowiringBeans.model.Employee" >
 		<property name="id" value="3"/>
 		<property name="name" value="three"/>
 	</bean>
@@ -56,6 +55,11 @@ https://www.springframework.org/schema/context/spring-context.xsd">
 	<bean id="employee4" class="com.razataggarwal.three_autowiringBeans.model.Employee" autowire="constructor">
 		<property name="id" value="4"/>
 		<property name="name" value="four"/>
-	</bean>	
+	</bean>
+	
+	<bean id="student1" class="com.razataggarwal.three_autowiringBeans.model.Student" >
+		<property name="id" value="1" />
+		<property name="name" value="Razat"/>
+	</bean>
 	
 </beans>
