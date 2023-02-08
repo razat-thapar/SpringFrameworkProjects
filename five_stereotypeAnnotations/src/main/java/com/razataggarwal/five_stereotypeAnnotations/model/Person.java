@@ -1,5 +1,7 @@
 package com.razataggarwal.five_stereotypeAnnotations.model;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +12,8 @@ public class Person {
 	private Long id; 
 	@Value("Razat Aggarwal")
 	private String name;
+	@Value("#{bestFriends}")
+	private List<String> friends; 
 	
 	public Long getId() {
 		return id;
@@ -23,10 +27,17 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public List<String> getFriends() {
+		return friends;
+	}
+	public void setFriends(List<String> friends) {
+		this.friends = friends;
+	}
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + "]";
-	} 
+		return "Person [id=" + id + ", name=" + name + ", friends=" + friends + "]";
+	}
+	 
 	
 	
 

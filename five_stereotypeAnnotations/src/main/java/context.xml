@@ -13,5 +13,11 @@ https://www.springframework.org/schema/context/spring-context.xsd">
 	
 	<!-- To enable the component scanning for all annotated classes -->
 	<context:component-scan base-package="com.razataggarwal.five_stereotypeAnnotations" />
-
+	
+	<util:list list-class="java.util.Vector" id="bestFriends">
+		<value>Ram</value>
+		<value>Syam</value>
+		<value>Madhav</value>
+	</util:list>
+	
 </beans>
