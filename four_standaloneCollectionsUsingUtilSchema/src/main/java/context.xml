@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:util="http://www.springframework.org/schema/util"
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util
+https://www.springframework.org/schema/util/spring-util.xsd">
+	
+<!-- 	standalone collections  -->
+	<util:list list-class="java.util.Vector" id="bestFriends">
+		<value>Ram</value>
+		<value>Syam</value>
+		<value>Madhav</value>
+	</util:list>
+	
+	<util:set set-class="java.util.TreeSet" id="AddressSet">
+		<ref bean="address1" />
+		<ref bean="address2" />
+	</util:set>
+	
+	<util:map map-class="java.util.TreeMap" id="contactBook">
+		<entry key="Ram" value="2937492374" />
+		<entry key="syam" value="2342294288" />
+		<entry key="Madhav" value="293749223" />
+	</util:map>
+	
+	<util:properties id="emailBook">
+		<prop key="Ram">ram@gmail.com</prop>
+		<prop key="syam">syam@gmail.com</prop>
+		<prop key="Madhav">Madhav@gmail.com</prop>
+	</util:properties>
+	
+<!-- 	creating beans and injecting primitive and collection types -->
+	<bean id="address1" class="com.razataggarwal.four_standaloneCollectionsUsingUtilSchema.model.Address">
+		<property name="id" value="1" />
+		<property name="city" value="Patiala" />
+		<property name="country" value="India" />
+		<property name="pincode" value="147001" />	
+	</bean>
+	
+	<bean id="address2" class="com.razataggarwal.four_standaloneCollectionsUsingUtilSchema.model.Address">
+		<property name="id" value="2" />
+		<property name="city" value="Panipat" />
+		<property name="country" value="India" />
+		<property name="pincode" value="142343" />	
+	</bean>
+	
+	<bean id="person1" class="com.razataggarwal.four_standaloneCollectionsUsingUtilSchema.model.Person">
+		<property name="id" value="1" />
+		<property name="name" value="Razat Aggarwal" />
+		<property name="friends" ref="bestFriends"/>
+		<property name="addresses"  ref="AddressSet"/>
+		<property name="contacts" ref="contactBook" />
+		<property name="emails"  ref="emailBook" />
+	</bean>
+
+</beans>
