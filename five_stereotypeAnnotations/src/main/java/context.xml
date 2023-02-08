@@ -20,4 +20,8 @@ https://www.springframework.org/schema/context/spring-context.xsd">
 		<value>Madhav</value>
 	</util:list>
 	
+	<bean id="defaultAddress" class="com.razataggarwal.five_stereotypeAnnotations.model.Address" >
+		<property name="id" value="1" />
+	</bean>
+	
 </beans>

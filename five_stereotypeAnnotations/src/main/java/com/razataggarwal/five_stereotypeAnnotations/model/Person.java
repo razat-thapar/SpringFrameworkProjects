@@ -14,6 +14,8 @@ public class Person {
 	private String name;
 	@Value("#{bestFriends}")
 	private List<String> friends; 
+	@Value("#{defaultAddress}")
+	private Address address; 
 	
 	public Long getId() {
 		return id;
@@ -35,8 +37,9 @@ public class Person {
 	}
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", friends=" + friends + "]";
+		return "Person [id=" + id + ", name=" + name + ", friends=" + friends + ", address=" + address + "]";
 	}
+
 	 
 	
 	
