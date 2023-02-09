@@ -2,6 +2,7 @@ package com.razataggarwal.six_springExpressionLanguage;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.razataggarwal.six_springExpressionLanguage.model.SpelDemo;
 import com.razataggarwal.six_springExpressionLanguage.model.User;
 
 /**
@@ -21,6 +22,10 @@ public class App
     	System.out.println("Using SpEL in @Value annotation");
         User user2 = context.getBean("user",User.class);
         System.out.println(user2);
+        
+        SpelDemo demo = context.getBean(SpelDemo.class);
+        System.out.println(demo);
+        
     	System.out.println("-------------------------------------------");
     	context.close();
     }
