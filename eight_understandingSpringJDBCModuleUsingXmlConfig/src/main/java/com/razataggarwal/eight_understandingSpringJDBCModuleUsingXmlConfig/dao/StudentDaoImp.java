@@ -31,9 +31,10 @@ public class StudentDaoImp implements StudentDao {
 	}
 
 	@Override
-	public void deleteStudentById(Long id) {
-		// TODO Auto-generated method stub
-
+	public int deleteStudentById(Long id) throws SQLException{
+		String sql = "delete from student where id=?";
+		int rows_deleted=this.jdbcTemplate.update(sql,id);
+		return rows_deleted; 
 	}
 
 	@Override
@@ -49,9 +50,10 @@ public class StudentDaoImp implements StudentDao {
 	}
 
 	@Override
-	public Optional<Student> updateStudentById(Long id, Student student) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public int updateStudentById(Long id, Student student) throws SQLException{
+		String sql="update Student set name=?,city=? where id=?";
+		int rows = this.jdbcTemplate.update(sql,student.getName(),student.getCity(),id);
+		return rows; 
 	}
 
 }

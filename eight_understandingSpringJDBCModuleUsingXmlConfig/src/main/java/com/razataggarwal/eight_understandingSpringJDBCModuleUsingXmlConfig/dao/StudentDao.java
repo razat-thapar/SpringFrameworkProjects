@@ -9,9 +9,9 @@ import com.razataggarwal.eight_understandingSpringJDBCModuleUsingXmlConfig.entit
 public interface StudentDao {
 	
 	public abstract int createStudent(Student student) throws SQLException;
-	public abstract void deleteStudentById(Long id) throws SQLException ;
+	public abstract int deleteStudentById(Long id) throws SQLException ;
 	public abstract List<Student> getAllStudents() throws SQLException;
 	public abstract Optional<Student> getStudentById(Long id) throws SQLException;
-	public abstract Optional<Student> updateStudentById(Long id, Student student) throws SQLException;
+	public abstract int updateStudentById(Long id, Student student) throws SQLException;
 
 }
