@@ -5,6 +5,10 @@ public class Student {
 	private int id; 
 	private String name; 
 	private String city;
+	
+	public Student() {
+		
+	}
 
 	public Student(int id, String name, String city) {
 		super();
