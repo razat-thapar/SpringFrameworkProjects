@@ -11,7 +11,9 @@ import com.razataggarwal.eight_understandingSpringJDBCModuleUsingXmlConfig.entit
 
 public class StudentDaoImp implements StudentDao {
 	 
-	private JdbcTemplate jdbcTemplate; 
+	private JdbcTemplate jdbcTemplate;
+	
+	private StudentDaoRowMapper studentDaoRowMapper; 
 	
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
@@ -19,6 +21,10 @@ public class StudentDaoImp implements StudentDao {
 
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
+	}
+
+	public void setStudentDaoRowMapper(StudentDaoRowMapper studentDaoRowMapper) {
+		this.studentDaoRowMapper = studentDaoRowMapper;
 	}
 
 	@Override
@@ -41,15 +47,16 @@ public class StudentDaoImp implements StudentDao {
 	}
 
 	@Override
-	public List<Student> getAllStudents() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Student> getAllStudents() throws SQLException{
+		String sql = "Select * from Student";
+		return this.jdbcTemplate.query(sql, studentDaoRowMapper);
 	}
 
 	@Override
-	public Optional<Student> getStudentById(Long id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public Optional<Student> getStudentById(Long id) throws SQLException{
+		String sql="select * from student where id=?";
+		Student student=this.jdbcTemplate.queryForObject(sql, studentDaoRowMapper, id);
+		return Optional.ofNullable(student);
 	}
 
 	@Override

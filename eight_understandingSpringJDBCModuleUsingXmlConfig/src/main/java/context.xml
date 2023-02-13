@@ -22,5 +22,6 @@ https://www.springframework.org/schema/beans/spring-beans.xsd">
 	</bean>
 	
 	<bean id="student" class="com.razataggarwal.eight_understandingSpringJDBCModuleUsingXmlConfig.entity.Student" scope="prototype"/>
-	
+	<bean id="studentDaoRowMapper" class="com.razataggarwal.eight_understandingSpringJDBCModuleUsingXmlConfig.dao.StudentDaoRowMapper" 
+	autowire="byType" scope="singleton"/>
 </beans>
