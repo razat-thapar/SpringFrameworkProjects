@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.razataggarwal.eight_understandingSpringJDBCModuleUsingXmlConfig.entity.Student;
 
@@ -21,6 +22,7 @@ public class StudentDaoImp implements StudentDao {
 	}
 
 	@Override
+	@Transactional
 	public int createStudent(Student student) throws SQLException {
 		String sql ="insert into Student(name,city) values (?,?)";
 		//business logic if any. 
@@ -31,6 +33,7 @@ public class StudentDaoImp implements StudentDao {
 	}
 
 	@Override
+	@Transactional
 	public int deleteStudentById(Long id) throws SQLException{
 		String sql = "delete from student where id=?";
 		int rows_deleted=this.jdbcTemplate.update(sql,id);
@@ -50,6 +53,7 @@ public class StudentDaoImp implements StudentDao {
 	}
 
 	@Override
+	@Transactional
 	public int updateStudentById(Long id, Student student) throws SQLException{
 		String sql="update Student set name=?,city=? where id=?";
 		int rows = this.jdbcTemplate.update(sql,student.getName(),student.getCity(),id);
