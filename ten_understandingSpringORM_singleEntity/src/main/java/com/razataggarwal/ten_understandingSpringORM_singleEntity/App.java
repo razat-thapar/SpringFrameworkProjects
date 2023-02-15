@@ -24,7 +24,7 @@ public class App
         System.out.println("-------------------------------------------------------------------");
         System.out.println("----------------------Add a new product---------------------------");
         Product p1 = new Product("MacBook Air Pro",150000.00,new Date());
-        Product p2 = new Product("MacBook Air Pro 2",160000.00,new Date());
+        Product p2 = new Product("MacBook Air Pro 21",160000.00,new Date());
         try {
 			productDao.addProduct(p1);
 			System.out.println(p1);
@@ -56,9 +56,9 @@ public class App
 		}
         System.out.println("-------------------------------------------------------------------");
         System.out.println("----------------------Update a product---------------------------");
-        Product p = new Product("MacBook Air Pro",150023.00,new Date());
+        Product p = new Product("Updated Product Name",150023.00,new Date());
         try {
-			productDao.updateProductById(19L, p);
+			productDao.updateProductById(1L, p);
 			System.out.println(p);
 		} catch (Exception e) {
 			System.out.println("Unable to update due to following exception: "+e.getMessage());
@@ -66,7 +66,7 @@ public class App
         System.out.println("-------------------------------------------------------------------");
         System.out.println("----------------------Delete a product---------------------------");
         try {
-			productDao.deleteProductById(19L);
+			productDao.deleteProductById(35L);
 		} catch (Exception e) {
 			System.out.println("Unable to delete due to following exception: "+e.getMessage());
 		}

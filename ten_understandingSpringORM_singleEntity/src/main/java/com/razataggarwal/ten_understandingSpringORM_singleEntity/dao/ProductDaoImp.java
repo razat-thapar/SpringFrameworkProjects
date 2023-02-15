@@ -17,7 +17,7 @@ public class ProductDaoImp implements ProductDao {
 	@Autowired
 	private HibernateTemplate hibernateTemplate; 
 
-	@Transactional
+	@Transactional(rollbackFor= {Exception.class})
 	public Product addProduct(Product p) throws SQLException{
 		Long id = (Long) this.hibernateTemplate.save(p);
 		p.setId(id);
@@ -33,19 +33,14 @@ public class ProductDaoImp implements ProductDao {
 		return this.hibernateTemplate.loadAll(Product.class);
 	}
 	
-	@Transactional
+	@Transactional(rollbackFor= {Exception.class})
 	public Product updateProductById(Long id, Product p) throws SQLException{
-		Product newp = new Product(p.getName(),p.getPrice(),p.getMfg_dt());
-		Optional<Product> oldp = this.getProductById(id); 
-		if(oldp.isPresent()) {
-			newp.setId(id);
-			this.hibernateTemplate.update(newp);
-		}else
-			throw new SQLException("No Product with id: "+id +" exists in DB");
-		return newp;
+		p.setId(id);
+		this.hibernateTemplate.update(p);
+		return p; 
 	}
 	
-	@Transactional
+	@Transactional(rollbackFor= {Exception.class})
 	public void deleteProductById(Long id) throws SQLException {
 		Optional<Product> p = this.getProductById(id);
 		if(p.isPresent()) {
